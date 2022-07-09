@@ -1,7 +1,7 @@
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 import AppTemplate from '../components/common/AppTemplate';
+import Welcome from '../components/welcome/Welcome';
 
 interface Props {
   navigation: NativeStackNavigationProp<RootStackParamsList>;
@@ -10,13 +10,9 @@ interface Props {
 function WelcomeScreen({ navigation }: Props) {
   return (
     <AppTemplate>
-      <View>
-        <Text>WelcomeScreen</Text>
-      </View>
+      <Welcome navigation={navigation} />
     </AppTemplate>
   );
 }
-
-const styles = StyleSheet.create({});
 
 export default WelcomeScreen;

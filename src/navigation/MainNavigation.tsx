@@ -103,6 +103,7 @@ function MainNavigation() {
   );
 }
 
+// Styles
 const styles = StyleSheet.create({
   image: {
     maxWidth: 20,
