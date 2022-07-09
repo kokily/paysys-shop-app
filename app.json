@@ -1,11 +1,10 @@
 {
   "expo": {
-    "name": "PaysysShopApp",
+    "name": "행사전표시스템",
     "slug": "PaysysShopApp",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -21,10 +20,13 @@
       "supportsTablet": true
     },
     "android": {
+      "versionCode": 3,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
+        "backgroundColor": "#52F9D1"
+      },
+      "package": "com.paysysshopappv",
+      "permissions": []
     },
     "web": {
       "favicon": "./assets/favicon.png"

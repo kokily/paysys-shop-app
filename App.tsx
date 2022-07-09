@@ -1,20 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import React from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { UserContextProvider } from './src/libs/context/UserContext';
+import { ThemeProvider } from 'react-native-elements';
+import Navigation from './src/navigation/Navigation';
 
-export default function App() {
+const queryClient = new QueryClient();
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <UserContextProvider>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider>
+          <Navigation />
+        </ThemeProvider>
+      </QueryClientProvider>
+    </UserContextProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
