@@ -1,19 +1,36 @@
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import type { RouteProp } from '@react-navigation/native';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import useListMenu from '../../libs/hooks/menu/useListMenu';
+import Loading from '../../components/common/Loading';
+import GeneralList from '../../components/menu/list/GeneralList';
 
 interface Props {
-  navigation: NativeStackNavigationProp<RootStackParamsList>;
+  navigation: NativeStackNavigationProp<
+    RootStackParamsList,
+    'SoldierList' | 'ReserveList' | 'GeneralList'
+  >;
+  route: RouteProp<
+    RootStackParamsList,
+    'SoldierList' | 'ReserveList' | 'GeneralList'
+  >;
 }
 
-function GeneralListScreen({ navigation }: Props) {
+function GeneralListScreen({ navigation, route }: Props) {
+  const { menu, loading, divide, onDetailMenu } = useListMenu({
+    navigation,
+    route,
+  });
+
+  if (loading) return <Loading />;
+
   return (
-    <View>
-      <Text>GeneralListScreen</Text>
-    </View>
+    <GeneralList
+      menu={menu || []}
+      divide={divide}
+      onDetailMenu={onDetailMenu}
+    />
   );
 }
-
-const styles = StyleSheet.create({});
 
 export default GeneralListScreen;

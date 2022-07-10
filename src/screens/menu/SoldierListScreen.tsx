@@ -1,19 +1,36 @@
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import type { RouteProp } from '@react-navigation/native';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import useListMenu from '../../libs/hooks/menu/useListMenu';
+import Loading from '../../components/common/Loading';
+import SoldierList from '../../components/menu/list/SoldierList';
 
 interface Props {
-  navigation: NativeStackNavigationProp<RootStackParamsList>;
+  navigation: NativeStackNavigationProp<
+    RootStackParamsList,
+    'SoldierList' | 'ReserveList' | 'GeneralList'
+  >;
+  route: RouteProp<
+    RootStackParamsList,
+    'SoldierList' | 'ReserveList' | 'GeneralList'
+  >;
 }
 
-function SoldierListScreen({ navigation }: Props) {
+function SoldierListScreen({ navigation, route }: Props) {
+  const { menu, loading, divide, onDetailMenu } = useListMenu({
+    navigation,
+    route,
+  });
+
+  if (loading) return <Loading />;
+
   return (
-    <View>
-      <Text>SoldierListScreen</Text>
-    </View>
+    <SoldierList
+      menu={menu || []}
+      divide={divide}
+      onDetailMenu={onDetailMenu}
+    />
   );
 }
-
-const styles = StyleSheet.create({});
 
 export default SoldierListScreen;
