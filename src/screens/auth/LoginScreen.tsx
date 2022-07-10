@@ -1,19 +1,26 @@
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import Login from '../../components/auth/Login';
+import useLogin from '../../libs/hooks/auth/useLogin';
 
 interface Props {
   navigation: NativeStackNavigationProp<RootStackParamsList>;
 }
 
 function LoginScreen({ navigation }: Props) {
+  const { username, password, setUsername, setPassword, onLogin } = useLogin({
+    navigation,
+  });
+
   return (
-    <View>
-      <Text>LoginScreen</Text>
-    </View>
+    <Login
+      username={username}
+      password={password}
+      setUsername={setUsername}
+      setPassword={setPassword}
+      onLogin={onLogin}
+    />
   );
 }
-
-const styles = StyleSheet.create({});
 
 export default LoginScreen;
