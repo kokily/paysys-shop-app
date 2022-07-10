@@ -1,19 +1,19 @@
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import GeneralHome from '../../components/home/GeneralHome';
+import useHome from '../../libs/hooks/home/useHome';
 
 interface Props {
-  navigation: NativeStackNavigationProp<RootStackParamsList>;
+  navigation: NativeStackNavigationProp<
+    RootStackParamsList,
+    'GeneralHome' | 'GeneralList'
+  >;
 }
 
 function GeneralScreen({ navigation }: Props) {
-  return (
-    <View>
-      <Text>GeneralScreen</Text>
-    </View>
-  );
-}
+  const { menu, onGeneralList } = useHome({ navigation });
 
-const styles = StyleSheet.create({});
+  return <GeneralHome menu={menu} onGeneralList={onGeneralList} />;
+}
 
 export default GeneralScreen;

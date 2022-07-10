@@ -2,7 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Image, StyleSheet } from 'react-native';
 import SoldierNavigation from './home/SoldierNavigation';
-import ReserveNaviation from './home/GeneralNavigation';
+import ReserveNaviation from './home/ReserveNavigation';
 import GeneralNaviation from './home/GeneralNavigation';
 import CartScreen from '../screens/cart/CartScreen';
 import FrontsNavigation from './fronts/FrontsNavigation';

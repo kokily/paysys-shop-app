@@ -1,19 +1,19 @@
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import ReserveHome from '../../components/home/ReserveHome';
+import useHome from '../../libs/hooks/home/useHome';
 
 interface Props {
-  navigation: NativeStackNavigationProp<RootStackParamsList>;
+  navigation: NativeStackNavigationProp<
+    RootStackParamsList,
+    'ReserveHome' | 'ReserveList'
+  >;
 }
 
 function ReserveScreen({ navigation }: Props) {
-  return (
-    <View>
-      <Text>ReserveScreen</Text>
-    </View>
-  );
-}
+  const { menu, onReserveList } = useHome({ navigation });
 
-const styles = StyleSheet.create({});
+  return <ReserveHome menu={menu} onReserveList={onReserveList} />;
+}
 
 export default ReserveScreen;

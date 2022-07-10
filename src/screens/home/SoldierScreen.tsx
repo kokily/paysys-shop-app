@@ -1,19 +1,19 @@
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import SoldierHome from '../../components/home/SoldierHome';
+import useHome from '../../libs/hooks/home/useHome';
 
 interface Props {
-  navigation: NativeStackNavigationProp<RootStackParamsList>;
+  navigation: NativeStackNavigationProp<
+    RootStackParamsList,
+    'SoldierHome' | 'SoldierList'
+  >;
 }
 
 function SoldierScreen({ navigation }: Props) {
-  return (
-    <View>
-      <Text>SoldierScreen</Text>
-    </View>
-  );
-}
+  const { menu, onSoldierList } = useHome({ navigation });
 
-const styles = StyleSheet.create({});
+  return <SoldierHome menu={menu} onSoldierList={onSoldierList} />;
+}
 
 export default SoldierScreen;
