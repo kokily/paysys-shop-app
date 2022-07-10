@@ -38,6 +38,7 @@ function useDetailMenu({ navigation, route }: Props) {
       parseInt(price) < 1
     ) {
       Alert.alert('단가 수량을 입력하세요');
+      return;
     }
 
     try {
@@ -48,7 +49,7 @@ function useDetailMenu({ navigation, route }: Props) {
       });
       navigation.goBack();
     } catch (err: any) {
-      alert(err);
+      Alert.alert(err);
     }
   };
 

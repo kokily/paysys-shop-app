@@ -14,7 +14,7 @@ export async function addCartAPI(payload: AddCartPayload) {
 
 // View Cart API
 export async function viewCartAPI() {
-  const response = await client.get('/cart');
+  const response = await client.get<CartType>('/cart');
   return response.data;
 }
 
