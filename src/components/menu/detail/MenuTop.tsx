@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Col, Grid, Row } from 'react-native-easy-grid';
 import { Input, Text } from 'react-native-elements';
+import { Amount } from '../../../libs/utils';
 
 interface Props {
   menu: ItemType;
@@ -39,9 +40,7 @@ function MenuTop({ menu, price, setPrice }: Props) {
               keyboardType="number-pad"
             />
           ) : (
-            <Text style={styles.contentText}>
-              {menu.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
-            </Text>
+            <Text style={styles.contentText}>{Amount(menu.price)}</Text>
           )}
         </Col>
       </Row>

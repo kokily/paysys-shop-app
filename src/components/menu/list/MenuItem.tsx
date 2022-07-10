@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { ListItem } from 'react-native-elements';
+import { Amount } from '../../../libs/utils';
 
 interface Props {
   item: ItemType;
@@ -35,9 +36,7 @@ function MenuItem({ item, onDetailMenu, native }: Props) {
             })
           }
         >
-          {item.name} |{' '}
-          {item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} |{' '}
-          {item.native}
+          {item.name} | {Amount(item.price)} | {item.native}
         </ListItem.Title>
       </ListItem.Content>
     </ListItem>
@@ -46,8 +45,14 @@ function MenuItem({ item, onDetailMenu, native }: Props) {
 
 // Styles
 const styles = StyleSheet.create({
-  container: {},
-  menu: {},
+  container: {
+    borderBottomColor: '#1098ad',
+    borderBottomWidth: 0.4,
+  },
+  menu: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
   title: {
     fontWeight: 'bold',
     textAlign: 'center',

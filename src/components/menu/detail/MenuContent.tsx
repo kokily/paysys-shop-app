@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Col, Grid, Row } from 'react-native-easy-grid';
 import { Input, Text } from 'react-native-elements';
+import { Amount } from '../../../libs/utils';
 
 interface Props {
   menu: ItemType;
@@ -39,19 +40,9 @@ function MenuContent({ menu, price, count, setCount }: Props) {
           <Text style={styles.totalMsg}>
             합계 금액:{' '}
             {menu.price === 0 ? (
-              <>
-                {(parseInt(price) * parseInt(count))
-                  .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                원
-              </>
+              <>{Amount(parseInt(price) * parseInt(count))}</>
             ) : (
-              <>
-                {(menu.price * parseInt(count))
-                  .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                원
-              </>
+              <>{Amount(menu.price * parseInt(count))}</>
             )}
           </Text>
         </Col>
