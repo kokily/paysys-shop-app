@@ -1,19 +1,31 @@
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import type { RouteProp } from '@react-navigation/native';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import Loading from '../../components/common/Loading';
+import ReadFront from '../../components/fronts/read/ReadFront';
+import useReadFront from '../../libs/hooks/fronts/useReadFront';
 
 interface Props {
   navigation: NativeStackNavigationProp<RootStackParamsList>;
+  route: RouteProp<RootStackParamsList>;
 }
 
-function ReadFrontScreen({ navigation }: Props) {
+function ReadFrontScreen({ navigation, route }: Props) {
+  const { front, user, loading, onRemoveBill, onRestoreBill } = useReadFront({
+    navigation,
+    route,
+  });
+
+  if (loading) return <Loading />;
+
   return (
-    <View>
-      <Text>ReadFrontScreen</Text>
-    </View>
+    <ReadFront
+      front={front}
+      user={user}
+      onRemoveBill={onRemoveBill}
+      onRestoreBill={onRestoreBill}
+    />
   );
 }
-
-const styles = StyleSheet.create({});
 
 export default ReadFrontScreen;

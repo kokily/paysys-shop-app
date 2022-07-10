@@ -85,6 +85,7 @@ function MainNavigation() {
         name="FrontList"
         component={FrontsNavigation}
         options={{
+          title: '전표목록',
           headerShown: false,
           unmountOnBlur: true,
           tabBarIcon: ({ focused, color, size }) => (
