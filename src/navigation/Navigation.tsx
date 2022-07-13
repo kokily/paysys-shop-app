@@ -4,7 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useUserState } from '../libs/context/UserContext';
 import useAuthLoadEffect from '../libs/hooks/auth/useAuthLoadEffect';
 import LoginNavigation from './LoginNavigation';
-import MainNavigation from './MainNavigation';
+import DrawerNavigation from './DrawerNavigation';
 
 function Navigation() {
   useAuthLoadEffect();
@@ -12,7 +12,13 @@ function Navigation() {
 
   return (
     <NavigationContainer>
-      {user ? <MainNavigation /> : <LoginNavigation />}
+      {user ? (
+        <>
+          <DrawerNavigation />
+        </>
+      ) : (
+        <LoginNavigation />
+      )}
       <StatusBar style="auto" />
     </NavigationContainer>
   );

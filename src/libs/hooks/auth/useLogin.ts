@@ -32,23 +32,12 @@ function useLogin({ navigation }: Props) {
     }
   };
 
-  const onLogout = async () => {
-    try {
-      await logoutMutate.mutateAsync();
-      setUser(null);
-      navigation.push('Login');
-    } catch (err: any) {
-      setError(err);
-    }
-  };
-
   return {
     username,
     password,
     setUsername,
     setPassword,
     onLogin,
-    onLogout,
     error,
   };
 }
