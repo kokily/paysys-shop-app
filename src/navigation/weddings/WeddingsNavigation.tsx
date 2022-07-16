@@ -23,12 +23,12 @@ function WeddingsNavigation() {
           options={{ title: '웨딩 세부보기' }}
         />
         <Stack.Screen
-          name="AddWedding"
+          name="AddExpense"
           component={AddWeddingScreen}
           options={{ title: '웨딩 추가' }}
         />
         <Stack.Screen
-          name="UpdateWedding"
+          name="UpdateExpense"
           component={UpdateWeddingScreen}
           options={{ title: '웨딩전표 수정' }}
         />

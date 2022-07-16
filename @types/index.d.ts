@@ -30,8 +30,8 @@ type RootStackParamsList = {
   ReadWedding: {
     id: string;
   };
-  AddWedding: undefined;
-  UpdateWedding: {
+  AddExpense: undefined;
+  UpdateExpense: {
     id: string;
   };
 };
