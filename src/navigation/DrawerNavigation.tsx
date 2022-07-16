@@ -12,6 +12,7 @@ import { useMutation } from 'react-query';
 import { logoutAPI } from '../libs/api/auth';
 import { Alert } from 'react-native';
 import { useUserState } from '../libs/context/UserContext';
+import WeddingsNavigation from './weddings/WeddingsNavigation';
 
 const Drawer = createDrawerNavigator<RootStackParamsList>();
 
@@ -54,6 +55,14 @@ function DrawerNavigation() {
         options={{
           drawerLabel: '비밀번호 변경',
           title: '비밀번호 변경',
+        }}
+      />
+      <Drawer.Screen
+        name="ListWeddings"
+        component={WeddingsNavigation}
+        options={{
+          drawerLabel: '웨딩빌지 목록',
+          title: '웨딩빌지 목록',
         }}
       />
     </Drawer.Navigator>
