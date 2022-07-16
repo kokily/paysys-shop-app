@@ -39,7 +39,7 @@ function DrawerNavigation() {
   return (
     <Drawer.Navigator
       drawerContent={(props) => <LogoutContents {...props} />}
-      screenOptions={{ drawerPosition: 'right' }}
+      screenOptions={{ drawerPosition: 'left' }}
     >
       <Drawer.Screen
         name="SoldierList"
